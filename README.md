@@ -1,16 +1,105 @@
-# React + Vite
+# 🎮 Video Games SPA
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive Single Page Application built using React (Vite) that fetches and displays a list of video games from a public API.
 
-Currently, two official plugins are available:
+This project was developed as part of a technical assessment to demonstrate React fundamentals, API integration, state management, data manipulation, and responsive UI implementation.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🚀 Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Fetches 100 video games from external API
+- Displays:
+  - Game Name
+  - Release Year
+  - Summary
+  - Rating
+- Filter by:
+  - Name (contains search)
+  - Minimum Rating
+- Sort by:
+  - Release Date
+  - Score
+  - Name
+- Clear filters without re-fetching API
+- Loading state while fetching data
+- Error handling for failed API calls
+- Fully responsive (Desktop / Tablet / Mobile)
+- Clean and modern UI built with Tailwind CSS
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠 Tech Stack
+
+- React (with Vite)
+- JavaScript (ES6+)
+- Tailwind CSS
+- React Router DOM
+- Fetch API
+- Async / Await
+- Functional Components + React Hooks
+- Responsive Design using Tailwind utility classes
+
+---
+
+## 📡 API Used
+
+Data is fetched from:
+
+https://admin.edulatte.in/api/games?pagination[pageSize]=100
+
+The application:
+- Retrieves 100 games
+- Stores original data separately
+- Applies filtering and sorting locally
+- Does NOT re-call API when filters change (as per assignment requirement)
+
+---
+
+## 🧠 Application Architecture
+
+src/
+│
+├── components/
+│   ├── Navbar.jsx
+│   ├── Filters.jsx
+│   ├── GameCard.jsx
+│   ├── Loader.jsx
+│
+├── pages/
+│   ├── Home.jsx
+│   ├── Contact.jsx
+│
+├── services/
+│   ├── api.js
+│
+├── App.jsx
+├── main.jsx
+├── index.css
+
+---
+
+## 📌 Key Implementation Details
+
+### 🔄 Data Fetching
+- API call handled inside useEffect
+- Uses async/await
+- Implements loading and error state
+- Clean separation of API logic inside services/api.js
+
+### 🔍 Filtering & Sorting Logic
+- Uses JavaScript array methods (.filter() and .sort())
+- Maintains original dataset for reset functionality
+- Filtering happens locally without additional API requests
+
+### 📱 Responsive Design
+- Built entirely using Tailwind CSS
+- Sidebar filter layout for desktop
+- Stacked layout for mobile
+- Flexible grid system for game cards
+
+### 🧹 Code Quality
+- Component-based architecture
+- Reusable components
+- Clean folder structure
+- Readable and maintainable code
